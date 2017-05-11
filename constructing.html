@@ -15,9 +15,6 @@ that filter by exact terms.</p>
 <p>Please, see below some examples of these queries:</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">12</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-       <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                         <span class="o">^</span>
 <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">parse</span><span class="o">(</span><span class="s">"composer = \"Johann Sebastian Bach\""</span><span class="o">)</span> <span class="c1">// songs composed by `Johann Sebastian Bach`
@@ -43,31 +40,16 @@ the <code class="highlighter-rouge">!~</code> (pronounced <em>not matches</em>) 
 <p>Please, see below some examples of this kind of queries:</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">10</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">15</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-       <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                         <span class="o">^</span>
 <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">parse</span><span class="o">(</span><span class="s">"name ~ \"paranoid\""</span><span class="o">)</span> <span class="c1">// songs that their name matches the word `paranoid` (maybe Radiohead's `Paranoid Android`?)
-</span><span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">10</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="n">res4</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">name</span><span class="o">,~,</span><span class="n">paranoid</span><span class="o">)),</span><span class="mi">17</span><span class="o">)</span>
+</span><span class="n">res4</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">name</span><span class="o">,~,</span><span class="n">paranoid</span><span class="o">)),</span><span class="mi">17</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">parse</span><span class="o">(</span><span class="s">"artist !~ \"lips\""</span><span class="o">)</span> <span class="c1">// songs that their artist not matches the word `lips` (maybe not `Flaming Lips` songs?)
-</span><span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">10</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="n">res5</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">artist</span><span class="o">,!~,</span><span class="n">lips</span><span class="o">)),</span><span class="mi">16</span><span class="o">)</span>
+</span><span class="n">res5</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">artist</span><span class="o">,!~,</span><span class="n">lips</span><span class="o">)),</span><span class="mi">16</span><span class="o">)</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">parse</span><span class="o">(</span><span class="s">"name ~ \"paranoid\" and artist !~ \"radiohead\""</span><span class="o">)</span> <span class="c1">// any paranoid song that is not from Radiohead? (I doubt it ;-))
-</span><span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">10</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="n">res6</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">CombinedClause</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">name</span><span class="o">,~,</span><span class="n">paranoid</span><span class="o">),</span><span class="n">and</span><span class="o">,</span><span class="nc">Clause</span><span class="o">(</span><span class="n">artist</span><span class="o">,!~,</span><span class="n">radiohead</span><span class="o">))),</span><span class="mi">43</span><span class="o">)</span>
+</span><span class="n">res6</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">CombinedClause</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">name</span><span class="o">,~,</span><span class="n">paranoid</span><span class="o">),</span><span class="n">and</span><span class="o">,</span><span class="nc">Clause</span><span class="o">(</span><span class="n">artist</span><span class="o">,!~,</span><span class="n">radiohead</span><span class="o">))),</span><span class="mi">43</span><span class="o">)</span>
 </code></pre>
 </div>
 
@@ -81,25 +63,10 @@ both match and filter terms.</p>
 being called in this case <em>mixed queries</em>. For example:</p>
 
 <div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">10</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">13</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">18</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-       <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                         <span class="o">^</span>
 <span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
 
 <span class="n">scala</span><span class="o">&gt;</span> <span class="n">parse</span><span class="o">(</span><span class="s">"name ~ \"paranoid\" and price &lt;= 0.99"</span><span class="o">)</span> <span class="c1">// paranoid songs that their price is less than or equal to 0.99)
-</span><span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">10</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="o">&lt;</span><span class="n">console</span><span class="k">&gt;:</span><span class="mi">13</span><span class="k">:</span> <span class="kt">warning:</span> <span class="kt">Unused</span> <span class="kt">import</span>
-<span class="k">import</span> <span class="nn">com.tecsisa.lightql.parser._</span>
-                                  <span class="o">^</span>
-<span class="n">res7</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">CombinedClause</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">name</span><span class="o">,~,</span><span class="n">paranoid</span><span class="o">),</span><span class="n">and</span><span class="o">,</span><span class="nc">Clause</span><span class="o">(</span><span class="n">price</span><span class="o">,&lt;=,</span><span class="mf">0.99</span><span class="o">))),</span><span class="mi">35</span><span class="o">)</span>
+</span><span class="n">res7</span><span class="k">:</span> <span class="kt">com.tecsisa.lightql.parser.StringParsed</span><span class="o">[</span><span class="kt">com.tecsisa.lightql.ast.Query</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Success</span><span class="o">(</span><span class="nc">Query</span><span class="o">(</span><span class="nc">CombinedClause</span><span class="o">(</span><span class="nc">Clause</span><span class="o">(</span><span class="n">name</span><span class="o">,~,</span><span class="n">paranoid</span><span class="o">),</span><span class="n">and</span><span class="o">,</span><span class="nc">Clause</span><span class="o">(</span><span class="n">price</span><span class="o">,&lt;=,</span><span class="mf">0.99</span><span class="o">))),</span><span class="mi">35</span><span class="o">)</span>
 </code></pre>
 </div>
 
