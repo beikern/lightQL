@@ -9,11 +9,11 @@ In order to work with either the HTTP or TCP Elasticsearch materializer (the onl
 just include the proper SBT configuration[^1sbt]:
 
 ```scala
-libraryDependencies += "com.tecsisa" %% "lightql-elastic-http" % "5.6.1"
+libraryDependencies += "com.tecsisa" %% "lightql-elastic-http" % "6.1.0"
 ```
 or
 ```scala
-libraryDependencies += "com.tecsisa" %% "lightql-elastic-tcp" % "5.6.1"
+libraryDependencies += "com.tecsisa" %% "lightql-elastic-tcp" % "6.1.0"
 ```
 
 Then, open a SBT REPL session and try this sequence of commands:
@@ -67,6 +67,9 @@ scala> val qs = "foo = 100"
 qs: String = foo = 100
 
 scala> materialize(parse(qs).get.value)
+<console>:20: warning: value elasticMaterializer in package tcp is deprecated (since 6.0.0): TCP will be removed in Elasticsearch 7. Use HTTP instead.
+       materialize(parse(qs).get.value)
+                  ^
 res0: com.sksamuel.elastic4s.searches.queries.QueryDefinition = TermQueryDefinition(foo,100,None,None)
 ```
 
@@ -103,7 +106,7 @@ scala> search("songs") query q("composer = \"Johann Sebastian Bach\"")
 <console>:10: warning: Unused import
        import com.tecsisa.lightql.parser._
                                          ^
-res0: com.sksamuel.elastic4s.searches.SearchDefinition = SearchDefinition(IndexesAndTypes(WrappedArray(songs),List()),List(),None,None,None,None,None,List(),List(),None,None,None,None,Some(TermQueryDefinition(composer,Johann Sebastian Bach,None,None)),None,None,List(),List(),List(),List(),List(),None,None,None,List(),None,List(),None,None,None,None)
+res0: com.sksamuel.elastic4s.searches.SearchDefinition = SearchDefinition(IndexesAndTypes(WrappedArray(songs),List()),List(),None,Fields(List(),List(),List()),None,Control(None,None,None,None),Scoring(None,List(),None),None,List(),List(),None,None,Some(TermQueryDefinition(composer,Johann Sebastian Bach,None,None)),None,None,List(),Suggestions(List(),None),Windowing(None,None,None),Meta(None,List()),None,List(),None,None,None,None)
 ```
 
 TCP:
@@ -136,7 +139,10 @@ scala> search("songs") query q("composer = \"Johann Sebastian Bach\"")
 <console>:10: warning: Unused import
        import com.tecsisa.lightql.parser._
                                          ^
-res0: com.sksamuel.elastic4s.searches.SearchDefinition = SearchDefinition(IndexesAndTypes(WrappedArray(songs),List()),List(),None,None,None,None,None,List(),List(),None,None,None,None,Some(TermQueryDefinition(composer,Johann Sebastian Bach,None,None)),None,None,List(),List(),List(),List(),List(),None,None,None,List(),None,List(),None,None,None,None)
+<console>:23: warning: value elasticMaterializer in package tcp is deprecated (since 6.0.0): TCP will be removed in Elasticsearch 7. Use HTTP instead.
+       search("songs") query q("composer = \"Johann Sebastian Bach\"")
+                       ^
+res0: com.sksamuel.elastic4s.searches.SearchDefinition = SearchDefinition(IndexesAndTypes(WrappedArray(songs),List()),List(),None,Fields(List(),List(),List()),None,Control(None,None,None,None),Scoring(None,List(),None),None,List(),List(),None,None,Some(TermQueryDefinition(composer,Johann Sebastian Bach,None,None)),None,None,List(),Suggestions(List(),None),Windowing(None,None,None),Meta(None,List()),None,List(),None,None,None,None)
 ```
 
 [^1sbt]: Please, use the 2.3.x installments in case you're working with Elasticsearch 2.3.x.  Please, raise a ticket in case you need a 2.4.x compatible release.
